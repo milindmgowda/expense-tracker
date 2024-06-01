@@ -20,8 +20,9 @@ public class User {
         return expenses;
     }
 
-    public void addExpense(Expense expense) {
+    public Expense addExpense(Expense expense) {
         this.expenses.add(expense);
+        return expense;
     }
 
     public Expense getExpense(String expense_id) {

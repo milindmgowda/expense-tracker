@@ -1,5 +1,8 @@
 package com.milind.expense_tracker.model;
 
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -9,7 +12,7 @@ public class Expense {
     String expense_id;
     String name;
     List<String> category = new ArrayList<>();
-    Date timeStamp;
+    DateTime timeStamp;
     String description;
     Integer amount;
     String notes;
@@ -20,7 +23,16 @@ public class Expense {
         this.amount = amount;
     }
 
-    public Expense(String name, List<String> category, String notes, Integer amount, String description, Date timeStamp) {
+    public Expense(String name, Integer amount) {
+        this.name = name;
+        this.amount = amount;
+        this.timeStamp = new DateTime(DateTimeZone.UTC);
+
+    }
+
+    public Expense() {}
+
+    public Expense(String name, List<String> category, String notes, Integer amount, String description, DateTime timeStamp) {
         this.name = name;
         this.category = category;
         this.notes = notes;
@@ -46,11 +58,11 @@ public class Expense {
         this.category = category;
     }
 
-    public Date getTimeStamp() {
+    public DateTime getTimeStamp() {
         return timeStamp;
     }
 
-    public void setTimeStamp(Date timeStamp) {
+    public void setTimeStamp(DateTime timeStamp) {
         this.timeStamp = timeStamp;
     }
 
